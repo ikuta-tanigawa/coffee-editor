@@ -16,6 +16,7 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emfcloud.coffee.Node;
+import org.eclipse.emfcloud.coffee.modelserver.commands.IssueSampleCommand;
 import org.eclipse.emfcloud.coffee.modelserver.commands.semantic.AddAutomatedTaskCommand;
 import org.eclipse.emfcloud.modelserver.glsp.notation.commands.AddShapeCommand;
 import org.eclipse.glsp.graph.GPoint;
@@ -27,6 +28,7 @@ public class AddAutomatedTaskCompoundCommand extends CompoundCommand {
       AddAutomatedTaskCommand command = new AddAutomatedTaskCommand(domain, modelUri);
       this.append(command);
       Supplier<Node> semanticResultSupplier = () -> command.getNode();
-      this.append(new AddShapeCommand(domain, modelUri, classPosition, semanticResultSupplier));
+      //this.append(new AddShapeCommand(domain, modelUri, classPosition, semanticResultSupplier));
+      this.append(new IssueSampleCommand(domain, modelUri, classPosition, semanticResultSupplier));
    }
 }
